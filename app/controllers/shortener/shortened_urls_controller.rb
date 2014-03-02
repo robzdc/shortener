@@ -19,11 +19,6 @@ class Shortener::ShortenedUrlsController < ActionController::Base
       end
       # do a 301 redirect to the destination url
       #redirect_to sl.url, :status => :moved_permanently
-      respond_to do |format|
-        format.html
-        format.json { render json: sl.url }
-      end
-
     else
       # if we don't find the shortened link, redirect to the root
       # make this configurable in future versions

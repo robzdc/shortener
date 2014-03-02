@@ -11,7 +11,7 @@ class Shortener::ShortenedUrl < ActiveRecord::Base
   # ensure the url starts with it protocol and is normalized
   def self.clean_url(url)
     return nil if url.blank?
-    url = URL_PROTOCOL_HTTP + url.strip unless url =~ REGEX_LINK_HAS_PROTOCOL
+    url = url.strip
     URI.parse(url).normalize.to_s
   end
 
